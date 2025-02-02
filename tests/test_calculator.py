@@ -12,7 +12,7 @@ class TestCalculator(unittest.TestCase):
         self.cal = Calculator()
 
     def test_add(self):
-        self.assertEqual(self.cal.add(2, 3), 4)
+        self.assertEqual(self.cal.add(2, 3), 5)
         self.assertEqual(self.cal.add(-1, 1), 0)
 
     def test_subtract(self):
@@ -20,7 +20,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.cal.subtract(10, 20), -10)
 
     def test_multiply(self):
-        self.assertEqual(self.cal.multiply(4, 3), 11)
+        self.assertEqual(self.cal.multiply(4, 3), 12)
         self.assertEqual(self.cal.multiply(-2, 5), -10)
 
     def test_divide(self):
