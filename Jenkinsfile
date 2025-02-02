@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit tests...'
-                    sh '. ${VENV_DIR}/bin/activate && python -m unittest discover tests'
+                    sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                junit 'test-reports/*.xml'  // If using JUnit-style test reports
+                junit 'test-report.xml'  // If using JUnit-style test reports
             }
         }
     }
