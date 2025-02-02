@@ -1,6 +1,12 @@
 pipeline {
     agent any  // Runs on any available Jenkins agent
-
+    parameters {
+            choice(
+                name: 'ENVIRONMENT',
+                choices: ['dev', 'test', 'prod'],
+                description: 'Select the deployment environment'
+            )
+        }
     environment {
         PYTHON_VERSION = '3.8'  // Define the Python version
         VENV_DIR = 'venv'  // Virtual environment directory
@@ -24,7 +30,7 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
                 script {
                     echo 'Installing project dependencies using setup.py...'
@@ -33,11 +39,34 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 script {
                     echo 'Running unit tests...'
                     sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                        // Environment-specific deployment logic
+                        switch(params.ENVIRONMENT) {
+                            case 'dev':
+                                echo "Deploying to Development"
+                                // Add dev deployment steps
+                                break
+                            case 'test':
+                                echo "Deploying to Test"
+                                // Add test deployment steps
+                                break
+                            case 'prod':
+                                echo "Deploying to Production"
+                                // Add production deployment steps with additional approvals
+                                input message: 'Deploy to production?'
+                                break
+                        }
                 }
             }
         }
