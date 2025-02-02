@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit tests...'
-                    sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"
+                    sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
                 }
             }
         }
