@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing project dependencies using setup.py...'
-                    sh '. ${VENV_DIR}/bin/activate && pip install .'
+                    sh '. ${VENV_DIR}/bin/activate && pip install . && pip install -r requirements.txt'
                 }
             }
         }
