@@ -55,7 +55,6 @@ pipeline {
                         switch(params.ENVIRONMENT) {
                             case 'dev':
                                 echo "Deploying to Development"
-                                sh ls
                                 // Add dev deployment steps
                                 break
                             case 'test':
