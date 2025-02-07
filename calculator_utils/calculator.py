@@ -11,6 +11,13 @@ class Calculator:
 
 
     def subtract(self, a, b):
+        """
+        This method substracts b from b and returns difference
+
+        :param a:
+        :param b:
+        :return:
+        """
         return a - b
 
     def multiply(self, a, b):
