@@ -19,9 +19,6 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.cal.subtract(5, 3), 2)
         self.assertEqual(self.cal.subtract(10, 20), -10)
 
-    def test_subtract_invalid_value(self):
-        self.assertEqual(self.cal.subtract(5, None), None)
-
     def test_multiply(self):
         self.assertEqual(self.cal.multiply(4, 3), 12)
         self.assertEqual(self.cal.multiply(-2, 5), -10)

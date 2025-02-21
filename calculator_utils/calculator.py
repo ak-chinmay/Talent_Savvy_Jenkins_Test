@@ -18,9 +18,6 @@ class Calculator:
         :param b:
         :return:
         """
-        if not a or not b:
-            print("a or b value is invalid")
-            return None
         return a - b
 
     def multiply(self, a, b):
