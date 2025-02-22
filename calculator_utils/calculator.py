@@ -7,6 +7,9 @@ class Calculator:
         :param b: 2nd number
         :return: sum of the two numbers
         """
+        if not a or not b:
+            print("a or b value is invalid")
+            return None
         return a + b
 
 
