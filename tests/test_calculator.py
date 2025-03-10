@@ -1,5 +1,6 @@
 import os
 import sys
+from time import sleep
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import unittest
@@ -15,6 +16,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.cal.add(2, 3), 5)
         self.assertEqual(self.cal.add(-1, 1), 0)
     def test_add_invalid_value(self):
+        sleep(350)
         self.assertEqual(self.cal.subtract(13, None), None)
 
     def test_subtract(self):
@@ -22,9 +24,11 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.cal.subtract(10, 20), -10)
 
     def test_subtract_invalid_value(self):
+        sleep(250)
         self.assertEqual(self.cal.subtract(5, None), None)
 
     def test_multiply(self):
+        sleep(100)
         self.assertEqual(self.cal.multiply(4, 3), 12)
         self.assertEqual(self.cal.multiply(-2, 5), -10)
 
