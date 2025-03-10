@@ -49,6 +49,14 @@ pipeline {
             }
         }
 
+        stage('sleeping') {
+            steps {
+                script {
+                    sh 'sleep 300'
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
                 script {
