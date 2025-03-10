@@ -33,7 +33,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo 'Installing project dependencies using setup.py...'
+                    echo 'Installing project    dependencies using setup.py...'
                     sh '. ${VENV_DIR}/bin/activate && pip install . && pip install -r requirements.txt'
                 }
             }
@@ -44,6 +44,7 @@ pipeline {
                 script {
                     echo 'Running unit tests...'
                     sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
+                    sleep 50
                 }
             }
         }
@@ -67,6 +68,7 @@ pipeline {
                                 input message: 'Deploy to production?'
                                 break
                         }
+                        sleep 50
                 }
             }
         }
