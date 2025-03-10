@@ -28,7 +28,6 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.cal.subtract(5, None), None)
 
     def test_multiply(self):
-        sleep(100)
         self.assertEqual(self.cal.multiply(4, 3), 12)
         self.assertEqual(self.cal.multiply(-2, 5), -10)
 
