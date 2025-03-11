@@ -44,7 +44,7 @@ pipeline {
                 script {
                     echo 'Running unit tests...'
                     sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
-                    sleep 50
+                    sleep 10
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         stage('sleeping') {
             steps {
                 script {
-                    sh 'sleep 300'
+                    sh 'sleep 10'
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline {
                                 input message: 'Deploy to production?'
                                 break
                         }
-                        sleep 50
+                        sleep 10
                 }
             }
         }
