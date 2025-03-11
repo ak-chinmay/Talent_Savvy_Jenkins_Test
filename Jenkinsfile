@@ -48,14 +48,6 @@ pipeline {
             }
         }
 
-        stage('sleeping') {
-            steps {
-                script {
-                    sh 'sleep 10'
-                }
-            }
-        }
-
         stage('Deploy') {
             steps {
                 script {
