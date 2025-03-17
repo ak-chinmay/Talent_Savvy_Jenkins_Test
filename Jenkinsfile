@@ -45,6 +45,9 @@ pipeline {
                     echo 'Running unit tests...'
                     sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
                 }
+                {
+                sleep time: 50, unit: 'SECONDS'
+                }
             }
         }
 
@@ -67,9 +70,11 @@ pipeline {
                                 input message: 'Deploy to production?'
                                 break
                         }
-                        sleep 10
                 }
             }
+             {
+                sleep time: 50, unit: 'SECONDS'
+              }
         }
 
         stage('Archive Test Results') {
