@@ -45,9 +45,7 @@ pipeline {
                     echo 'Running unit tests...'
                     sh '. ${VENV_DIR}/bin/activate &&  pytest --junitxml="test-report.xml"'
                 }
-                {
-                sleep time: 50, unit: 'SECONDS'
-                }
+
             }
         }
 
@@ -72,9 +70,6 @@ pipeline {
                         }
                 }
             }
-             {
-                sleep time: 50, unit: 'SECONDS'
-              }
         }
 
         stage('Archive Test Results') {
