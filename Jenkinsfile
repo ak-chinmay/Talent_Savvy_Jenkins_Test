@@ -72,6 +72,29 @@ pipeline {
             }
         }
 
+        stage('Deploy 2') {
+            steps {
+                script {
+                        // Environment-specific deployment logic
+                        switch(params.ENVIRONMENT) {
+                            case 'dev':
+                                echo "Deploying to Development"
+                                // Add dev deployment steps
+                                break
+                            case 'test':
+                                echo "Deploying to Test"
+                                // Add test deployment steps
+                                break
+                            case 'prod':
+                                echo "Deploying to Production"
+                                // Add production deployment steps with additional approvals
+                                input message: 'Deploy to production?'
+                                break
+                        }
+                }
+            }
+        }
+
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
