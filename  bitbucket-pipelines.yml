@@ -3,10 +3,8 @@
 
 image: python:3.9
 
-# Pipeline configurations
-pipelines:
-  default:
-    # Run tests on all branches
+definitions:
+  steps:
     - step: &run-tests
         name: Run Python Tests
         script:
@@ -30,9 +28,24 @@ pipelines:
           # Check test coverage (optional, adjust threshold as needed)
           - coverage report --fail-under=80
 
+
+
+
+# Pipeline configurations
+pipelines:
+  # Trigger on all pushes to main branch
   branches:
     main:
-      - step: *run-tests
+      - parallel:
+          # Run tests in parallel
+          - step: *run-tests
+
+          # Additional code quality checks can be added here
+          - step:
+              name: Security Scan
+              script:
+                - pip install safety
+                - safety check
 
       - step:
           name: Build Deployment Package
@@ -55,8 +68,3 @@ pipelines:
   pull-requests:
     '**':
       - step: *run-tests
-
-# Optional: Caching dependencies to speed up builds
-definitions:
-  caches:
-    pip: ~/.cache/pip
