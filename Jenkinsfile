@@ -31,6 +31,7 @@ pipeline {
                     sh 'export PATH=python3_3.12.3-0ubuntu2_amd64/usr/bin:$PATH'
                     sh 'dpkg -x python3-pip_24.0+dfsg-1ubuntu1.1_all.deb python3-pip_24.0+dfsg-1ubuntu1.1_all/'
                     sh 'export PATH=python3-pip_24.0+dfsg-1ubuntu1.1_all/usr/bin:$PATH'
+                    sh 'ls python3_3.12.3-0ubuntu2_amd64/usr/bin'
                     sh 'pip install --upgrade pip'
                 }
             }
