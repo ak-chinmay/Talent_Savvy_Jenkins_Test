@@ -24,7 +24,6 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'python3 -m venv ${VENV_DIR}'
                     sh '. pip install --upgrade pip'
                 }
             }
