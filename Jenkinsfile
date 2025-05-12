@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'apt install python3.12-venv && python3 -m venv ${VENV_DIR}'
+                    sh 'sudo apt install python3.12-venv && python3 -m venv ${VENV_DIR}'
                     sh '. ${VENV_DIR}/bin/activate && pip install --upgrade pip'
                 }
             }
