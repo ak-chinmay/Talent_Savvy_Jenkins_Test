@@ -25,7 +25,10 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
+                    sh 'python3 -m venv ${VENV_DIR}'
                     sh 'sudo apt install -y python3-pip'
+                    sh '. ${VENV_DIR}/bin/activate'
+
                 }
             }
         }
@@ -34,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing project    dependencies using setup.py...'
-                    sh 'pip install -r requirements.txt'
+                    sh '. ${VENV_DIR}/bin/activate && pip install -r requirements.txt'
                 }
             }
         }
@@ -43,7 +46,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit tests...'
-                    sh '. pytest --junitxml="test-report.xml"'
+                    sh '. ${VENV_DIR}/bin/activate && pytest --junitxml="test-report.xml"'
                 }
 
             }
