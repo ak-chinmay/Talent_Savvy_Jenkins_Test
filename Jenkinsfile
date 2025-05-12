@@ -24,8 +24,8 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'echo "${params.azure_passwd}" | sudo apt install python3'
-                    sh 'echo "${params.azure_passwd}" | sudo apt install python3-pip' 
+                    sh 'echo "${params.azure_passwd}" | sudo -S apt install python3'
+                    sh 'echo "${params.azure_passwd}" | sudo -S apt install python3-pip' 
                     sh 'pip install --upgrade pip'
                 }
             }
