@@ -25,8 +25,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'apt-get install -y python3 && apt-get install -y python3-venv'
-                    sh 'pip install --upgrade pip'
+                    sh 'python3 -m pip install --upgrade pip'
                 }
             }
         }
