@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing project    dependencies using setup.py...'
-                    sh '. pip install . && pip install -r requirements.txt'
+                    sh 'pip install -r requirements.txt'
                 }
             }
         }
