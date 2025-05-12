@@ -25,13 +25,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'apt-get download python3'
-                    sh 'dpkg -x python3_3.12.3-0ubuntu2_amd64.deb python3_3.12.3-0ubuntu2_amd64/'
-                    sh 'apt-get download python3-pip'
-                    sh 'export PATH=python3_3.12.3-0ubuntu2_amd64/usr/bin:$PATH'
-                    sh 'dpkg -x python3-pip_24.0+dfsg-1ubuntu1.1_all.deb python3-pip_24.0+dfsg-1ubuntu1.1_all/'
-                    sh 'export PATH=python3-pip_24.0+dfsg-1ubuntu1.1_all/usr/bin:$PATH'
-                    sh 'ls python3_3.12.3-0ubuntu2_amd64/usr/bin'
+                    apt-get install -y python3 && apt-get install -y python3-venv
                     sh 'pip install --upgrade pip'
                 }
             }
