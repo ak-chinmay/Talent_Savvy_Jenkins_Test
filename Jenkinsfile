@@ -25,6 +25,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
+                    sh 'sudo apt install python3-pip'
                     sh 'python3 -m pip install --upgrade pip'
                 }
             }
