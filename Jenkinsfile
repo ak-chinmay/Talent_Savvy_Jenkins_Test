@@ -25,8 +25,8 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'echo "rootroot" | sudo -S apt install python3'
-                    sh 'echo "rootroot" | sudo -S apt install python3-pip' 
+                    sh 'echo "root" | sudo -S apt install python3'
+                    sh 'echo "root" | sudo -S apt install python3-pip' 
                     sh 'pip install --upgrade pip'
                 }
             }
