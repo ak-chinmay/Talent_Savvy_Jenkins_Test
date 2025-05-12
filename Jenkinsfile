@@ -48,7 +48,7 @@ pipeline {
                 script {
                     echo 'Running unit tests...'
                     sh 'ls'
-                    sh '. ${VENV_DIR}/bin/activate && pytest ./Talent_Savvy_Gitlabs_Test --junitxml="test-report.xml"'
+                    sh '. ${VENV_DIR}/bin/activate && pytest ./tests --junitxml="test-report.xml"'
                 }
 
             }
