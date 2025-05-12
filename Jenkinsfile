@@ -27,6 +27,7 @@ pipeline {
                     echo 'Creating virtual environment...'
                     sh 'python3 -m venv ${VENV_DIR}'
                     sh 'sudo apt install -y python3-pip'
+                    sh 'sudo apt install -y python3.12-venv'
                     sh '. ${VENV_DIR}/bin/activate'
 
                 }
