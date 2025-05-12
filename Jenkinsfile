@@ -28,8 +28,9 @@ pipeline {
                     sh 'apt-get download python3'
                     sh 'dpkg -x python3_3.12.3-0ubuntu2_amd64.deb python3_3.12.3-0ubuntu2_amd64/'
                     sh 'apt-get download python3-pip'
-                    sh 'ls'
+                    sh 'ls python3_3.12.3-0ubuntu2_amd64/'
                     sh 'dpkg -x python3-pip_24.0+dfsg-1ubuntu1.1_all.deb python3-pip_24.0+dfsg-1ubuntu1.1_all/'
+                    sh 'ls python3-pip_24.0+dfsg-1ubuntu1.1_all/'
                     sh 'pip install --upgrade pip'
                 }
             }
