@@ -24,8 +24,8 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'sudo apt install python3 < ' + params.azure_passwd
-                    sh 'sudo apt install python3-pip < ' + params.azure_passwd 
+                    sh 'sudo apt install python3 < "${params.azure_passwd}"'
+                    sh 'sudo apt install python3-pip < "${params.azure_passwd}"' 
                     sh 'wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user'
                     sh '. pip install --upgrade pip'
                 }
