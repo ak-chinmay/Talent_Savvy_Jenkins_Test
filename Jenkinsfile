@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating virtual environment...'
-                    sh 'apt install python3'
+                    sh 'sudo apt install python3 < rootroot'
                     sh 'wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py --user'
                     sh '. pip install --upgrade pip'
                 }
