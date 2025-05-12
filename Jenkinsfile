@@ -26,9 +26,9 @@ pipeline {
                 script {
                     echo 'Creating virtual environment...'
                     sh 'apt-get download python3'
-                    sh 'ls'
-                    sh 'dpkg -x python3.deb dir'
+                    sh 'dpkg -x python3_3.12.3-0ubuntu2_amd64.deb python3_3.12.3-0ubuntu2_amd64/'
                     sh 'apt-get download python3-pip'
+                    sh 'ls'
                     sh 'dpkg -x python3-pip.deb dir'
                     sh 'pip install --upgrade pip'
                 }
