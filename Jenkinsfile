@@ -6,6 +6,7 @@ pipeline {
                 choices: ['dev', 'test', 'prod'],
                 description: 'Select the deployment environment'
             )
+            password(name: 'azure_passwd', defaultValue: '', description: 'azure password')
         }
     environment {
         PYTHON_VERSION = '3.8'  // Define the Python version
